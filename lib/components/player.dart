@@ -5,11 +5,11 @@ import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
 import '../game/my_game.dart';
 
-class Player extends PositionComponent with CollisionCallbacks, HasGameRef<MyGame> {
+class Player extends PositionComponent with CollisionCallbacks, HasGameReference<MyGame> {
   final JoystickComponent joystick;
   final double speed = 200;
 
-  Player(this.joystick){
+  Player(this.joystick, {ComponentKey? key}) : super(key:key){
     size = Vector2.all(50);
     anchor = Anchor.center;
   }
@@ -35,15 +35,15 @@ class Player extends PositionComponent with CollisionCallbacks, HasGameRef<MyGam
     }
 
 
-    position.x = position.x.clamp(0, gameRef.size.x - size.x);
-    position.y = position.y.clamp(0, gameRef.size.y - size.y);
+    position.x = position.x.clamp(0, game.size.x - size.x);
+    position.y = position.y.clamp(0, game.size.y - size.y);
   }
 
   @override
   void onCollision(Set<Vector2> points, PositionComponent other) {
     if (other is Enemy) {
       removeFromParent();
-      gameRef.onPlayerDied();
+      game.onPlayerDied();
     }
   }
 }

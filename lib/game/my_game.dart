@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'package:firstgame/ui/joystick.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame/components.dart';
@@ -20,23 +20,15 @@ class MyGame extends FlameGame with HasCollisionDetection {
 
   void spawnWorld(){
     // create a Joystick
-    final joystick = JoystickComponent(
-      knob: CircleComponent(
-        radius: 25,
-        paint: Paint()..color = Colors.grey,
-      ),
-      background: CircleComponent(
-          radius: 60,
-          paint: Paint()..color = const Color(0xFFFFFFFF)
-      ),
-      margin: const EdgeInsets.only(left: 40, bottom: 40),
-    );
+    final joystick = GameJoystick();
     add(joystick);
     _worldComponents.add(joystick);
 
     // create player
-    player = Player(joystick)
+    player = Player(joystick, key: ComponentKey.named('player'))
       ..position = Vector2(200, 300);
+
+
     add(player!);
     _worldComponents.add(player!);
 
