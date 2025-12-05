@@ -1,4 +1,4 @@
-package com.example.firstgame
+package yg-Kovalev.firstgame
 
 import io.flutter.embedding.android.FlutterActivity
 

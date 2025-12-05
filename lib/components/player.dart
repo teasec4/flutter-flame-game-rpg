@@ -7,10 +7,10 @@ import '../game/my_game.dart';
 
 class Player extends PositionComponent with CollisionCallbacks, HasGameReference<MyGame> {
   final JoystickComponent joystick;
-  final double speed = 200;
+  final double speed = 80;
 
   Player(this.joystick, {ComponentKey? key}) : super(key:key){
-    size = Vector2.all(50);
+    size = Vector2.all(25);
     anchor = Anchor.center;
   }
 
@@ -33,8 +33,6 @@ class Player extends PositionComponent with CollisionCallbacks, HasGameReference
     if (!delta.isZero()) {
       position += Vector2(delta.x, delta.y) * speed * dt;
     }
-
-
     position.x = position.x.clamp(0, game.size.x - size.x);
     position.y = position.y.clamp(0, game.size.y - size.y);
   }

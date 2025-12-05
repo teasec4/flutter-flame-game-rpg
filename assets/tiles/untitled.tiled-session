@@ -1,0 +1,21 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+    },
+    "last.imagePath": "/Users/yg_kovalev/development/firstgame/assets/images",
+    "map.height": 10,
+    "map.lastUsedFormat": "tmx",
+    "map.width": 20,
+    "openFiles": [
+    ],
+    "project": "untitled.tiled-project",
+    "recentFiles": [
+    ],
+    "tileset.lastUsedFormat": "tsx"
+}
